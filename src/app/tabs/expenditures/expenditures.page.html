@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Expenditures
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card class="topic-content">
+    <ion-card-header class="ion-text-center">
+      <ion-card-title style="color: white">Select the topics to show</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item color="dark" *ngFor="let topic of topics">
+        <fa-icon slot="start" [icon]="['fas', topic.icon]" [styles]="{'color': topic.color}" size="2x">
+        </fa-icon>
+        <ion-label>{{topic.title}}</ion-label>
+        <ion-checkbox color="light" slot="end">
+        </ion-checkbox>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

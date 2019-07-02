@@ -4,3 +4,53 @@
 // styles are for the entire app and not just one component. Additionally, this 
 // file can hold Sass mixins, functions, and placeholder classes to be imported 
 // and used throughout the application.
+
+ion-label,
+ion-title,
+ion-card,
+ion-buttons {
+    font-family: 'Amaranth', sans-serif !important;
+    color: white;
+    font-size: 30px;
+}
+
+ion-content {
+    --ion-background-color: #2f2e2a;
+    // 030e4e G1
+    // 2f2e2a G2
+}
+
+
+ion-header {
+    --ion-background-color: #ff6f28;
+    // f4a01c G1
+    // ff6f28 G2
+    color: white !important;
+}
+
+.ion-color-love {
+    --ion-color-base: #FFDAF6;
+    --ion-color-base-rgb: 255, 255, 0;
+    --ion-color-contrast: red;
+    --ion-color-contrast-rgb: 0, 0, 0;
+    --ion-color-shade: rgb(33, 12, 36);
+    --ion-color-tint: #F6B0FF;
+}
+
+.ion-color-lighterGreen {
+    --ion-color-base: #9EF2B6;
+    --ion-color-base-rgb: 255, 255, 0;
+    --ion-color-contrast: black;
+    --ion-color-contrast-rgb: 0, 0, 0;
+    --ion-color-shade: rgb(33, 12, 36);
+    --ion-color-tint: #9EF2B6;
+}
+
+.ion-color-orange {
+    --ion-color-base: #FFDA96;
+    --ion-color-base-rgb: 255, 255, 0;
+    --ion-color-contrast: black;
+    --ion-color-contrast-rgb: 0, 0, 0;
+    --ion-color-shade: rgb(33, 12, 36);
+    --ion-color-tint: #F7C581;
+}
