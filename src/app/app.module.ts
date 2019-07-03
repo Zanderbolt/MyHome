@@ -16,6 +16,11 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 
+//Firebase
+import { AngularFireModule } from 'angularfire2';
+import { environment } from '../environments/environment';
+import {AngularFirestoreModule, AngularFirestore } from 'angularfire2/firestore'
+
 
 
 
@@ -27,7 +32,9 @@ import { faCoffee } from '@fortawesome/free-solid-svg-icons';
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule
   ],
   providers: [
     StatusBar,

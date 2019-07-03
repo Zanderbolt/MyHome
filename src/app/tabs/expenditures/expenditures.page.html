@@ -16,12 +16,49 @@
     </ion-card-header>
     <ion-card-content>
       <ion-item color="dark" *ngFor="let topic of topics">
-        <fa-icon slot="start" [icon]="['fas', topic.icon]" [styles]="{'color': topic.color}" size="2x">
-        </fa-icon>
-        <ion-label>{{topic.title}}</ion-label>
-        <ion-checkbox color="light" slot="end">
+        <ion-icon color="{{topic.color}}" name="{{topic.icon}}"></ion-icon>
+        <!-- <fa-icon slot="start" [icon]="['fas', topic.icon]" [styles]="{'color': topic.color}" size="2x">
+        </fa-icon> -->
+        <ion-label>&nbsp; {{topic.title}}</ion-label>
+        <ion-checkbox [(ngModel)]="topic.selected" color="light" slot="end">
         </ion-checkbox>
       </ion-item>
     </ion-card-content>
   </ion-card>
+
+  <!-- fab placed in the bottom of the content with a list on each side -->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="medium">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="top">
+      <ion-fab-button *ngFor="let topic of topics" color="dark">
+        <ion-icon name={{topic.icon}} color="{{topic.color}}"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+
+  <ng-container *ngFor="let topic of topics">
+    <ion-card *ngIf="topic.selected">
+      <ion-list>
+        <ion-item-divider class="ion-text-center">
+          <ion-label class="card-content-title">
+            <ion-icon name={{topic.icon}} color="{{topic.color}}"></ion-icon> &nbsp; {{topic.title}}
+          </ion-label>
+        </ion-item-divider>
+        <ng-container *ngFor="let expenditure of expenditures">
+          <ion-item *ngIf="expenditure.topic == topic.title" style="color: white">
+
+            <ion-label class="ion-text-end"> {{expenditure.description}}: <strong style="color: yellowgreen">
+                ${{expenditure.total}} </strong> </ion-label>
+
+          </ion-item>
+        </ng-container>
+      </ion-list>
+    </ion-card>
+  </ng-container>
+
+
+
+
 </ion-content>

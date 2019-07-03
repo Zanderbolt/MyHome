@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ExpenditureI } from '../../models/expenditure.interface'
+import { ExpenditureService } from 'src/app/services/expenditure.service';
+
 
 @Component({
   selector: 'app-expenditures',
@@ -6,33 +9,38 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./expenditures.page.scss'],
 })
 export class ExpendituresPage implements OnInit {
-
+  expenditures: ExpenditureI[]
   topics = [
     {
       title: 'Home',
       icon: 'home',
-      color: '#3584E4'
+      color: 'primary',
+      selected: true,
     },
     {
       title: 'Food',
-      icon: 'hamburger',
-      color: '#FF9437'
+      icon: 'pizza',
+      color: 'red',
+      selected: false,
     },
     {
       title: 'Alcohol',
       icon: 'beer',
-      color: 'yellow'
+      color: 'yellow',
+      selected: false,
     },
     {
       title: 'Entertainment',
-      icon: 'ghost',
-      color: 'white'
+      icon: 'logo-game-controller-b',
+      color: 'light',
+      selected: false,
     }
   ]
 
-  constructor() { }
+  constructor(public expendituresService: ExpenditureService) { }
 
   ngOnInit() {
+    this.expendituresService.getExpenditures().subscribe(res => this.expenditures = res);
   }
 
 }
